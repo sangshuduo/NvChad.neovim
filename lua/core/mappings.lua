@@ -1,4 +1,4 @@
--- n, v, i are mode names
+-- n, v, i, t = mode names
 
 local function termcodes(str)
    return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -22,6 +22,8 @@ M.general = {
    },
 
    n = {
+
+      ["<ESC>"] = { "<cmd> noh <CR>", "  no highlight" },
 
       -- switch between windows
       ["<C-h>"] = { "<C-w>h", " window left" },
@@ -52,7 +54,7 @@ M.general = {
    },
 
    t = {
-      ["jk"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+      ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
    },
 }
 
@@ -69,7 +71,7 @@ M.bufferline = {
       -- close buffer + hide terminal buffer
       ["<leader>x"] = {
          function()
-            nvchad.close_buffer()
+            require("core.utils").close_buffer()
          end,
          "   close buffer",
       },
@@ -129,7 +131,7 @@ M.lspconfig = {
          "   lsp implementation",
       },
 
-      ["<C-k>"] = {
+      ["<leader>ls"] = {
          function()
             vim.lsp.buf.signature_help()
          end,
@@ -145,7 +147,7 @@ M.lspconfig = {
 
       ["<leader>ra"] = {
          function()
-            vim.lsp.buf.rename()
+            require("nvchad.ui.renamer").open()
          end,
          "   lsp rename",
       },
@@ -336,6 +338,26 @@ M.whichkey = {
             vim.cmd("WhichKey " .. input)
          end,
          "   which-key query lookup",
+      },
+   },
+}
+
+M.blankline = {
+   n = {
+      ["<leader>bc"] = {
+         function()
+            local ok, start = require("indent_blankline.utils").get_current_context(
+               vim.g.indent_blankline_context_patterns,
+               vim.g.indent_blankline_use_treesitter_scope
+            )
+
+            if ok then
+               vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
+               vim.cmd [[normal! _]]
+            end
+         end,
+
+         "  Jump to current_context",
       },
    },
 }
