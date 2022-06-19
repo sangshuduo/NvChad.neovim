@@ -32,7 +32,7 @@
 ## Showcase
 
 <img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/screenshots/dashboard.png">
-<img src="https://cdn.discordapp.com/attachments/610012460828852229/853933487295299584/unknown.png">
+<img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/screenshots/main2.png">
 
 ( Zoom in the screenshot )
 
@@ -67,45 +67,42 @@
 
 Fast file tree:
 
-<kbd><img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/nvimtree.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/nvimtree.png"></kbd><hr>
 
 <h3> Telescope-nvim </h3>
 
 A fuzzy file finder, picker, sorter, previewer and much more:
 
-<kbd><img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/tel.png"></kbd>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/tel.png"></kbd><hr>
 
 <h3> Indent-blankline.nvim </h3>
 
 Adds indentline:
 
-<kbd><img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/blanklineNvim.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/blanklineNvim.png"></kbd><hr>
 
-<h3> Feline.nvim  </h3>
+<h3> Our own statusline written from scratch  </h3>
 
-Highly configurable statusline plugin:
+[link](https://github.com/NvChad/NvChad/blob/main/lua/ui/statusline.lua)
 
-<kbd><img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/statusline.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/statusline.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/statusline_modes.png"></kbd><hr>
 
 <h3> Nvim-bufferline.lua </h3>
 
-Better tab implementation:
+A snazzy bufferline for Neovim
 
-<kbd><img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/bufferline.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/bufferline.png"></kbd><hr>
 
 <h3> Nvim-web-devicons </h3>
 
 Lua fork of Vim Devicons which offers more file icon customisability:
 
-<kbd><img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/image.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/devicons.png"></kbd><hr>
 
 <h3> Nvim-treesitter </h3
 
-Better syntax highlighting for programming languages (NvChad by default comes with Lua/bash treesitter parsers).
-
-Without/with Treesitter:
-
-<kbd><img src="https://raw.githubusercontent.com/siduck/dotfiles/all/rice%20flex/woTree.png"></kbd><hr>
+NeoVim Treesitter configurations and abstraction layer. We mostly use this for syntax highlighting. The pretty syntax highlighting you see in all of our screenshots has gotten possible due to treesitter
 
 </details>
 
@@ -117,7 +114,6 @@ Without/with Treesitter:
 - File navigation with [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - Managing tabs, buffers with [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - Beautiful and configurable icons with [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- Pretty and functional statusline with [feline.nvim](https://github.com/Famiu/feline.nvim)
 - Git diffs and more with [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 
 - NeoVim Lsp configuration with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) and [lsp-installer](https://github.com/williamboman/nvim-lsp-installer/)
 - Autocompletion with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -130,13 +126,13 @@ Without/with Treesitter:
 
 ## History
 
-- I (@siduck i.e creator of NvChad) in my initial days of learning to program wanted a lightweight IDE for writing code, I had a very low end system, which was like 1.4ghz pentium + 4gb ram & HDD. I was into web dev so many suggested vscode but that thing was very heavy on my system, It took more ram than my browser! ( minimal ungoogled chromium ) so I never tried it again, sublime text was nice but the fear of using proprietary software XD for a linux user bugged me a lot. Then I tried doom-emacs which looked pretty but it was slow and emacs was kinda hard, I tried lunarvim but too lazy to read the docs which got me into vim and got into neovim lua stuff real quick. I wanted to make the config ery pretty and fast.
+- I (@siduck i.e creator of NvChad) in my initial days of learning to program wanted a lightweight IDE for writing code, I had a very low end system which was like 1.4ghz pentium + 4gb ram & HDD. I was into web dev stuff so many suggested me to use vscode but that thing was very heavy on my system, It took more ram than my browser! ( minimal ungoogled chromium ) so I never tried it again, sublime text was nice but the fear of using proprietary software XD for a linux user bugged me a lot. Then I tried doom-emacs which looked pretty but it was slow and I was lost within its docs, I tried lunarvim but too lazy to read the docs. Doom-emacs and lunarvim inspired me to make a config which is the prettiest + very fast and simple.
 
-- I'm decent at ricing i.e customizing system and making it look pretty so I posted my neovim rice on [neovim subreddit](https://www.reddit.com/r/neovim/comments/m3xl4f/neovim_rice/), my neovim-dotfiles github repo blew up and then I had to come up with a name, I was amazed by the chad meme lol so I put NvChad as the name, the chad word in the name doesnt literally mean the chad guy but in the sense such as chad linux vs windows i.e meaning superior,best etc. NvChad was made for my personal use but it gained some popularity which inspired me to make a public config i.e config usable by many and less hassle to update, without the custom config stuff users would have to keep a track of every commit and copy paste git diffs to manually update nvchad.
+- I'm decent at ricing i.e customizing system and making it look pretty so I posted my neovim rice on [neovim subreddit](https://www.reddit.com/r/neovim/comments/m3xl4f/neovim_rice/), my neovim-dotfiles github repo blew up and then I had to come up with a name, I was amazed by the chad meme lol so I put NvChad as the name, the chad word in here doesnt literally mean the chad guy but in the sense such as chad linux vs windows i.e meaning superior, best etc. NvChad was made for my personal use but it gained some popularity which inspired me to make a public config i.e config usable by many and less hassle to update as everyone's going to use the same base config (NvChad) with their custom modifications (which are gitignored so that wont mess up), without the custom config stuff users would have to keep a track of every commit and copy paste git diffs to manually update nvchad.
  
 ## :gift_heart: Support
 
-I'm (@siduck) really very sorry to remove the previous charity links but I had to do it for various reasons. A lot has been going here regarding financial issues and I do need some support if it's possible from your end. I haven't graduated yet and it would be great to earn some stuff as that'd help me with daily minor expenses. If you like NvChad and would like to support it via donation then I'll gladly accept it. Dont worry! NvChad will still stay alive & active without your donations! I will remove the sponsor button and re-add the charity links once I get a job, probably a year or two.   
+I'm (@siduck) really very sorry to remove the previous charity links but I had to do it for various reasons. A lot has been going here regarding financial issues and I do need some support if it's possible from your end. I haven't graduated yet and it would be great to earn some stuff as that'd help me with daily minor expenses. If you like NvChad and would like to support & appreciate it via donation then I'll gladly accept it. Dont worry! NvChad will still stay alive & active without your donations! I will remove the sponsor button and re-add the charity links once I get a job, probably a year or two.   
 
 [![kofi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/siduck)
 [![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/siduck76)
