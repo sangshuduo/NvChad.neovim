@@ -11,12 +11,6 @@ vim.opt.listchars:append "extends:…"
 vim.opt.listchars:append "nbsp:␣"
 vim.opt.listchars:append "tab:>-"
 
-vim.cmd "hi Visual guifg=#FFFF00 guibg=#0000FF gui=none"
-vim.cmd "set noignorecase"
-vim.cmd "set nu"
-vim.cmd "set whichwrap="
-vim.cmd "set tabstop=4 shiftwidth=4"
-
 local M = {}
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
