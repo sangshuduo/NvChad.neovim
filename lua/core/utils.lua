@@ -1,30 +1,18 @@
 local M = {}
 local api = vim.api
-local fn = vim.fn
 
 local merge_tb = vim.tbl_deep_extend
 
-M.close_buffer = function(force)
+M.close_buffer = function(bufnr)
    if vim.bo.buftype == "terminal" then
-      force = force or #api.nvim_list_wins() < 2 and ":bd!"
-      local swap = force and #api.nvim_list_bufs() > 1 and ":bp | bd!" .. fn.bufnr()
-      return vim.cmd(swap or force or "hide")
+      vim.cmd(vim.bo.buflisted and "set nobl | enew" or "hide")
+   elseif vim.bo.modified then
+      print "save the file bruh"
+   else
+      bufnr = bufnr or api.nvim_get_current_buf()
+      require("core.utils").tabuflinePrev()
+      vim.cmd("bd" .. bufnr)
    end
-
-   local fileExists = fn.filereadable(fn.expand "%p")
-   local modified = api.nvim_buf_get_option(fn.bufnr(), "modified")
-
-   -- if file doesnt exist & its modified
-   if fileExists == 0 and modified then
-      print "no file name? add it now!"
-      return
-   end
-
-   force = force or not vim.bo.buflisted or vim.bo.buftype == "nofile"
-
-   -- if not force, change to prev buf and then close current
-   local close_cmd = force and ":bd!" or ":bp | bd" .. fn.bufnr()
-   vim.cmd(close_cmd)
 end
 
 M.load_config = function()
@@ -147,17 +135,97 @@ M.merge_plugins = function(default_plugins)
 end
 
 M.load_override = function(default_table, plugin_name)
-   local user_table = M.load_config().plugins.override[plugin_name]
+   local user_table = M.load_config().plugins.override[plugin_name] or {}
+   user_table = type(user_table) == "table" and user_table or user_table()
+   return merge_tb("force", default_table, user_table)
+end
 
-   if type(user_table) == "function" then
-      user_table = user_table()
-   elseif type(user_table) == "table" then
-      default_table = merge_tb("force", default_table, user_table)
-   else
-      default_table = default_table
+M.packer_sync = function(...)
+   local git_exists, git = pcall(require, "nvchad.utils.git")
+   local defaults_exists, defaults = pcall(require, "nvchad.utils.config")
+   local packer_exists, packer = pcall(require, "packer")
+
+   if git_exists and defaults_exists then
+      local current_branch_name = git.get_current_branch_name()
+
+      -- warn the user if we are on a snapshot branch
+      if current_branch_name:match(defaults.snaps.base_snap_branch_name .. "(.+)" .. "$") then
+         vim.api.nvim_echo({
+            { "WARNING: You are trying to use ", "WarningMsg" },
+            { "PackerSync" },
+            {
+               " on a NvChadSnapshot. This will cause issues if NvChad dependencies contain "
+                  .. "any breaking changes! Plugin updates will not be included in this "
+                  .. "snapshot, so they will be lost after switching between snapshots! Would "
+                  .. "you still like to continue? [y/N]\n",
+               "WarningMsg",
+            },
+         }, false, {})
+
+         local ans = vim.trim(string.lower(vim.fn.input "-> "))
+
+         if ans ~= "y" then
+            return
+         end
+      end
    end
 
-   return default_table
+   if packer_exists then
+      packer.sync(...)
+   else
+      error "Packer could not be loaded!"
+   end
+end
+
+M.bufilter = function()
+   local bufs = vim.t.bufs
+
+   for i = #bufs, 1, -1 do
+      if not vim.api.nvim_buf_is_valid(bufs[i]) then
+         table.remove(bufs, i)
+      end
+   end
+
+   return bufs
+end
+
+M.tabuflineNext = function()
+   local bufs = M.bufilter() or {}
+
+   for i, v in ipairs(bufs) do
+      if api.nvim_get_current_buf() == v then
+         vim.cmd(i == #bufs and "b" .. bufs[1] or "b" .. bufs[i + 1])
+         break
+      end
+   end
+end
+
+M.tabuflinePrev = function()
+   local bufs = M.bufilter() or {}
+
+   for i, v in ipairs(bufs) do
+      if api.nvim_get_current_buf() == v then
+         vim.cmd(i == 1 and "b" .. bufs[#bufs] or "b" .. bufs[i - 1])
+         break
+      end
+   end
+end
+
+-- closes tab + all of its buffers
+M.closeAllBufs = function(action)
+   local bufs = vim.t.bufs
+
+   if action == "closeTab" then
+      vim.cmd "tabclose"
+   end
+
+   for _, buf in ipairs(bufs) do
+      M.close_buffer(buf)
+   end
+
+   if action ~= "closeTab" then
+      vim.cmd "enew"
+   end
 end
 
 return M

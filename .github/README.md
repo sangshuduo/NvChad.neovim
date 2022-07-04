@@ -3,13 +3,13 @@
 <div align="center">
 	<a href="https://nvchad.github.io/">Home</a>
   <span> • </span>
-    	<a href="https://nvchad.github.io/getting-started/setup">Install</a>
+    	<a href="https://nvchad.github.io/quickstart/install">Install</a>
   <span> • </span>
        	<a href="https://nvchad.github.io/contribute">Contribute</a>
   <span> • </span>
 	<a href="https://github.com/NvChad/NvChad#gift_heart-support">Support</a>
   <span> • </span>
-        <a href="https://nvchad.github.io/Extras">Extras</a>
+        <a href="https://nvchad.github.io/Features">Features</a>
   <p></p>
 </div> 
 
@@ -41,7 +41,7 @@
 
 ## What is it?
 
-- NvChad is a neovim config written in lua aiming to provide a base configuration with very beautiful UI and blazing fast startuptime (around 0.02 secs ~ 0.07 secs). We tweak UI plugins such as telescope, nvim-tree, bufferline etc well to provide an asethetic UI experience. 
+- NvChad is a neovim config written in lua aiming to provide a base configuration with very beautiful UI and blazing fast startuptime (around 0.02 secs ~ 0.07 secs). We tweak UI plugins such as telescope, nvim-tree, bufferline etc well to provide an aesthetic UI experience. 
 
 - Lazy loading is done 93% of the time meaning that plugins will not be loaded by default, they will be loaded only when required also at specific commands, events etc. This lowers the startuptime and it was like 0.07~ secs tested on an old pentium machine 1.4ghz + 4gb ram & HDD.
 
@@ -88,11 +88,11 @@ Adds indentline:
 <kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/statusline.png"></kbd><hr>
 <kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/statusline_modes.png"></kbd><hr>
 
-<h3> Nvim-bufferline.lua </h3>
+<h3> Tabufline (our own pertab bufferline) </h3>
 
-A snazzy bufferline for Neovim
-
-<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/bufferline.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/tabufline1.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/tabufline2.png"></kbd><hr>
+<kbd><img src="https://github.com/NvChad/nvchad.github.io/blob/src/static/img/features/tabufline3.png"></kbd><hr>
 
 <h3> Nvim-web-devicons </h3>
 

@@ -9,12 +9,6 @@ end, 0)
 require("core.packer").bootstrap()
 require "plugins"
 
-local user_conf, _ = pcall(require, "custom")
-
-if user_conf then
-   require "custom"
-end
-
 -- tab:→\ ,trail:␣,extends:…,eol:⏎
 -- tab:>- ,trail:~,extends:…,eol:↵
 vim.opt.list = true
@@ -31,3 +25,4 @@ vim.cmd "set nu"
 vim.cmd "set whichwrap="
 vim.cmd "set tabstop=4 shiftwidth=4"
 
+pcall(require, "custom")
