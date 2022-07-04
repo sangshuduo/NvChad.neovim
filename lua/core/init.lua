@@ -6,6 +6,14 @@ vim.cmd "silent! command! NvChadSnapshotCheckout lua require('nvchad').snap_chec
 
 -- autocmds
 local autocmd = vim.api.nvim_create_autocmd
+local api = vim.api
+
+-- wrap the PackerSync command to warn people before using it in NvChadSnapshots
+autocmd("VimEnter", {
+   callback = function()
+      vim.cmd "command! -nargs=* -complete=customlist,v:lua.require'packer'.plugin_complete PackerSync lua require('core.utils').packer_sync(<f-args>)"
+   end,
+})
 
 -- Disable statusline in dashboard
 autocmd("FileType", {
@@ -28,13 +36,47 @@ autocmd("BufEnter", {
    command = "set fo-=c fo-=r fo-=o",
 })
 
-autocmd("InsertLeave", {
-   callback = function()
-      if
-         require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-         and not require("luasnip").session.jump_active
-      then
-         require("luasnip").unlink_current()
+vim.t.bufs = vim.api.nvim_list_bufs()
+
+-- thx to https://github.com/ii14 & stores buffer per tab -> table
+autocmd({ "BufAdd", "BufEnter" }, {
+   callback = function(args)
+      if vim.t.bufs == nil then
+         vim.t.bufs = { args.buf }
+      else
+         local bufs = vim.t.bufs
+
+         -- check for duplicates
+         if not vim.tbl_contains(bufs, args.buf) and (args.event == "BufAdd" or vim.bo[args.buf].buflisted) then
+            table.insert(bufs, args.buf)
+            vim.t.bufs = bufs
+         end
       end
    end,
 })
+
+autocmd("BufDelete", {
+   callback = function(args)
+      for _, tab in ipairs(api.nvim_list_tabpages()) do
+         local bufs = vim.t[tab].bufs
+         if bufs then
+            for i, bufnr in ipairs(bufs) do
+               if bufnr == args.buf then
+                  table.remove(bufs, i)
+                  vim.t[tab].bufs = bufs
+                  break
+               end
+            end
+         end
+      end
+   end,
+})
+
+local tabufline_opts = require("core.utils").load_config().ui.tabufline
+
+if tabufline_opts.enabled and tabufline_opts.lazyload then
+   require("core.lazy_load").tabufline()
+elseif tabufline_opts.enabled then
+   vim.opt.showtabline = 2
+   vim.opt.tabline = "%!v:lua.require'ui.tabline'.run()"
+end
