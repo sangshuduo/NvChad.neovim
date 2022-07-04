@@ -128,11 +128,12 @@ M.cursor_position = function()
    local current_line = fn.line "."
    local total_line = fn.line "$"
    local text = math.modf((current_line / total_line) * 100) .. tostring "%%"
+   local r,c = unpack(vim.api.nvim_win_get_cursor(0))
 
    text = (current_line == 1 and "Top") or text
    text = (current_line == total_line and "Bot") or text
 
-   return left_sep .. "%#St_pos_text#" .. " " .. text .. " "
+   return left_sep .. "%#St_pos_text#" .. r .. " " .. c .. " " .. text .. " "
 end
 
 return M
