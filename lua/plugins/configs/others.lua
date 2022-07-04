@@ -6,7 +6,7 @@ M.autopairs = function()
    local present1, autopairs = pcall(require, "nvim-autopairs")
    local present2, cmp = pcall(require, "cmp")
 
-   if not present1 and present2 then
+   if not (present1 and present2) then
       return
    end
 
@@ -113,6 +113,18 @@ M.luasnip = function()
    options = load_override(options, "L3MON4D3/LuaSnip")
    luasnip.config.set_config(options)
    require("luasnip.loaders.from_vscode").lazy_load()
+   require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.luasnippets_path or "" })
+
+   vim.api.nvim_create_autocmd("InsertLeave", {
+      callback = function()
+         if
+            require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+            and not require("luasnip").session.jump_active
+         then
+            require("luasnip").unlink_current()
+         end
+      end,
+   })
 end
 
 M.gitsigns = function()
