@@ -3,5 +3,6 @@
 
 return {
 
-   ["wellle/context.vim"] = {}
+   ["wellle/context.vim"] = {},
+   ["github/copilot.vim"] = {}
 }
