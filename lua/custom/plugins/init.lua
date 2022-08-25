@@ -3,6 +3,7 @@
 
 return {
 
+    ["fatih/vim-go"] = {},
     ["darrikonn/vim-gofmt"] = {},
     ["wellle/context.vim"] = {},
     ["github/copilot.vim"] = {},
