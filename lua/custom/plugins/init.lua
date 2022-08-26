@@ -3,6 +3,7 @@
 
 return {
 
+    ["vim-scripts/c.vim"] = {},
     ["fatih/vim-go"] = {},
     ["darrikonn/vim-gofmt"] = {},
     ["wellle/context.vim"] = {},
