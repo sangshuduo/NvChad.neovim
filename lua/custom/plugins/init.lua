@@ -4,16 +4,10 @@
 return {
 
     ["vim-scripts/c.vim"] = {},
+    ["skywind3000/asyncrun.vim"] = {},
     ["fatih/vim-go"] = {},
     ["darrikonn/vim-gofmt"] = {},
     ["wellle/context.vim"] = {},
-    ["github/copilot.vim"] = {},
-    [ 'saecki/crates.nvim' ] = 
-    {
-        tag = 'v0.2.1',
-        config = function()
-            require('crates').setup()
-        end,
-    }
+    ["github/copilot.vim"] = {}
 }
 
