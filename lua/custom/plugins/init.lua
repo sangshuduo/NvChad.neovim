@@ -3,6 +3,7 @@
 
 return {
 
+    ["vim-scripts/c.vim"] = {},
     ["skywind3000/asyncrun.vim"] = {},
     ["fatih/vim-go"] = {},
     ["darrikonn/vim-gofmt"] = {},
