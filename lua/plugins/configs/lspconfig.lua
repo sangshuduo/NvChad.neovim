@@ -27,9 +27,9 @@ M.on_attach = function(client, bufnr)
    local lsp_mappings = utils.load_config().mappings.lspconfig
    utils.load_mappings({ lsp_mappings }, { buffer = bufnr })
 
-   if client.server_capabilities.signatureHelpProvider then
-      require("nvchad.ui.signature").setup(client)
-   end
+--   if client.server_capabilities.signatureHelpProvider then
+--      require("nvchad.ui.signature").setup(client)
+--   end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
