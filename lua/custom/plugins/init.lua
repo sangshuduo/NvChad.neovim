@@ -8,8 +8,9 @@ return {
     ["fatih/vim-go"] = {},
     ["darrikonn/vim-gofmt"] = {},
     ["wellle/context.vim"] = {},
+    ["rhysd/vim-clang-format"] = {},
     ["github/copilot.vim"] = {},
-    [ 'saecki/crates.nvim' ] =
+    ["saecki/crates.nvim"] =
     {
         tag = 'v0.2.1',
         config = function()
