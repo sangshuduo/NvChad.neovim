@@ -8,6 +8,8 @@ return {
     ["fatih/vim-go"] = {},
     ["darrikonn/vim-gofmt"] = {},
     ["wellle/context.vim"] = {},
+    ["rhysd/vim-clang-format"] = {},
+    ["github/copilot.vim"] = {},
     ["saecki/crates.nvim"] =
     {
         tag = 'v0.2.1',
@@ -15,7 +17,5 @@ return {
             require('crates').setup()
         end,
     }
-    ["rhysd/vim-clang-format"] = {},
-    ["github/copilot.vim"] = {}
 }
 
