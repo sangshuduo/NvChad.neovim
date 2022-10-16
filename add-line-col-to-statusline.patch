@@ -1,0 +1,18 @@
+diff --git a/lua/nvchad_ui/statusline/modules.lua b/lua/nvchad_ui/statusline/modules.lua
+index a66bf28..bd90b83 100644
+--- a/lua/nvchad_ui/statusline/modules.lua
++++ b/lua/nvchad_ui/statusline/modules.lua
+@@ -141,10 +141,12 @@ M.cursor_position = function()
+   local total_line = fn.line "$"
+   local text = math.modf((current_line / total_line) * 100) .. tostring "%%"
+
++  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
++
+   text = (current_line == 1 and "Top") or text
+   text = (current_line == total_line and "Bot") or text
+
+-  return left_sep .. "%#St_pos_text#" .. " " .. text .. " "
++  return left_sep .. "%#St_pos_text#" .. " " .. line .. "," .. (col+1) .. " " .. text .. " "
+ end
+
+ return M
