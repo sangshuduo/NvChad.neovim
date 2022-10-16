@@ -10,6 +10,7 @@ return {
     ["wellle/context.vim"] = {},
     ["rhysd/vim-clang-format"] = {},
     ["github/copilot.vim"] = {},
+    ['danilamihailov/beacon.nvim'] = {},
     ["saecki/crates.nvim"] =
     {
         tag = 'v0.2.1',
