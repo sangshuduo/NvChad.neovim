@@ -11,6 +11,12 @@ return {
     ["rhysd/vim-clang-format"] = {},
     ["github/copilot.vim"] = {},
     ['danilamihailov/beacon.nvim'] = {},
+    ['tamton-aquib/duck.nvim'] = {
+        config = function()
+            vim.keymap.set('n', '<leader>dd', function() require("duck").hatch("🦀") end, {})
+            vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
+        end
+    },
     ["saecki/crates.nvim"] =
     {
         tag = 'v0.2.1',
