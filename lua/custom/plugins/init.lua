@@ -11,6 +11,7 @@ return {
     ["rhysd/vim-clang-format"] = {},
     ["github/copilot.vim"] = {},
     ['danilamihailov/beacon.nvim'] = {},
+    ['neoclide/coc.nvim'] = {},
     ['tamton-aquib/duck.nvim'] = {
         config = function()
             vim.keymap.set('n', '<leader>dd', function() require("duck").hatch("🦀") end, {})
