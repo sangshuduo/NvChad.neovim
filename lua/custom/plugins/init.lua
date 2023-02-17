@@ -25,7 +25,7 @@ return {
             require('crates').setup()
         end,
     },
-    [use 'voldikss/vim-floaterm'] = {}
+    ['voldikss/vim-floaterm'] = {}
 
 }
 
