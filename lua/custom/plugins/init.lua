@@ -25,6 +25,8 @@ return {
             require('crates').setup()
         end,
     },
+    ['simrat39/rust-tools.nvim'] = {},
+    ['mfussenegger/nvim-dap'] = {},
     ['voldikss/vim-floaterm'] = {}
 }
 
