@@ -1,3 +1,6 @@
 spell
 /plugin/
 ftplugin
+coc-settings.json
+.luarc.json
+cheatsheet.txt
