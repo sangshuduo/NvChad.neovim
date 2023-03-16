@@ -10,6 +10,7 @@ return {
     ["wellle/context.vim"] = {},
     ["rhysd/vim-clang-format"] = {},
     ["github/copilot.vim"] = {},
+    ["Exafunction/codeium.vim"] = {},
     ['danilamihailov/beacon.nvim'] = {},
     ['neoclide/coc.nvim'] = {},
     ['tamton-aquib/duck.nvim'] = {
