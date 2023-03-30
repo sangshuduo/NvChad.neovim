@@ -26,6 +26,17 @@ return {
             require('crates').setup()
         end,
     },
+    {"folke/todo-comments.nvim",
+        lazy = false,
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+        }
+        end
+    },
     {'simrat39/rust-tools.nvim', lazy = false},
     {'mfussenegger/nvim-dap', lazy = false},
     {'voldikss/vim-floaterm', lazy = false},
