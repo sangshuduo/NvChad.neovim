@@ -27,13 +27,26 @@ return {
         end,
     },
     {"folke/todo-comments.nvim",
+        -- PERF: test perf?
+        -- HACK: bruh
+        -- TODO: wew
+        -- NOTE:  sdkfj dkfjskdf
+        -- ERROR: --
+        -- FIX: fixed
+        -- WARNING: test done
         lazy = false,
-        requires = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+                keywords = {
+                    FIX = {
+                        color = "error", -- can be a hex color, or a named color (see below)
+                        alt = {"ERROR"},
+                    },
+                },
+                highlight = {
+                    comments_only = false, -- uses treesitter to match keywords in comments only
+                    pattern = [[.*<(KEYWORDS)\s*]], -- pattern or table of patterns, used for highlightng (vim regex)
+                }
         }
         end
     },
