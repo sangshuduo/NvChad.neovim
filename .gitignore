@@ -1,5 +1,6 @@
+plugin
+custom
 spell
-/plugin/
 ftplugin
 coc-settings.json
 .luarc.json

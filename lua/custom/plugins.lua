@@ -40,7 +40,14 @@ return {
                 keywords = {
                     FIX = {
                         color = "error", -- can be a hex color, or a named color (see below)
-                        alt = {"ERROR"},
+                        alt = {"ERR"},
+                    },
+                    TODO = {
+                        color = "info",
+                        alt = {"VERB", "DEBG"},
+                    },
+                    PERF = {
+                        alt = {"OK"},
                     },
                 },
                 highlight = {
