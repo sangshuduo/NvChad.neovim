@@ -19,6 +19,17 @@ return {
             vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
         end
     },
+    {'simrat39/inlay-hints.nvim', lazy = false,
+        config = function()
+            require("inlay-hints").setup({
+                only_current_line = true,
+
+                eol = {
+                    right_align = true,
+                }
+            })
+        end,
+    },
     {"saecki/crates.nvim",
         lazy = false,
         tag = 'v0.2.1',
@@ -57,9 +68,27 @@ return {
         }
         end
     },
-    {'simrat39/rust-tools.nvim', lazy = false},
+    {'simrat39/rust-tools.nvim', lazy = false,
+        config = function()
+            local ih = require("inlay-hints")
+            require("rust-tools").setup({
+                tools = {
+                    on_initialized = function()
+                        ih.set_all()
+                    end,
+                    inlay_hints = {
+                        auto = true,
+                    },
+                },
+                server = {
+                    on_attach = function(c, b)
+                        ih.on_attach(c, b)
+                    end,
+                },
+            })
+        end,
+    },
     {'mfussenegger/nvim-dap', lazy = false},
-    {'voldikss/vim-floaterm', lazy = false},
-    {"Exafunction/codeium.vim", lazy = false}
+    {'voldikss/vim-floaterm', lazy = false}
 }
 

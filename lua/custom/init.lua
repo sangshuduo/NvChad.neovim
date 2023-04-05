@@ -31,3 +31,4 @@ vim.cmd "let g:floaterm_keymap_new    = '<F10>'"
 vim.cmd "let g:floaterm_keymap_prev   = '<F9>'"
 vim.cmd "let g:floaterm_keymap_next   = '<F11>'"
 vim.cmd "let g:floaterm_keymap_toggle = '<F12>'"
+
