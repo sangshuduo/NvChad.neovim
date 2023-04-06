@@ -12,6 +12,7 @@ return {
     {"Exafunction/codeium.vim", lazy = false},
     {'danilamihailov/beacon.nvim', lazy = false},
     {'neoclide/coc.nvim', lazy = false},
+    {'williamboman/warden.nvim', lazy = false, line_highlight = true},
     {'tamton-aquib/duck.nvim',
         lazy = false,
         config = function()
