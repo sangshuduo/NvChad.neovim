@@ -168,8 +168,13 @@ return {
                     on_initialized = function()
                         ih.set_all()
                     end,
+                    autosethints = true,
                     inlay_hints = {
                         auto = true,
+                        show_parameter_hints = true,
+                    },
+                    hover_actions = {
+                        auto_focus = true
                     },
                 },
                 server = {
