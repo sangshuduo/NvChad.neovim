@@ -3,6 +3,7 @@
 
 return {
     {"vim-scripts/c.vim", lazy = false},
+    {"liuchengxu/vista.vim", lazy = false},
     {"skywind3000/asyncrun.vim", lazy = false},
     {"fatih/vim-go", lazy = false},
     {"darrikonn/vim-gofmt", lazy = false},
