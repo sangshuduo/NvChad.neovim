@@ -3,6 +3,35 @@
 
 return {
     {"vim-scripts/c.vim", lazy = false},
+    {"tamton-aquib/zone.nvim", lazy = false,
+        config = function()
+            require("zone").setup({
+                require('zone').setup {
+                    style = "treadmill",
+                    after = 5,          -- Idle timeout
+                    exclude_filetypes = { "TelescopePrompt", "NvimTree", "neo-tree", "dashboard", "lazy" },
+                    -- More options to come later
+
+                    treadmill = {
+                        direction = "left",
+                        headache = true,
+                        tick_time = 30,     -- Lower, the faster
+                        -- Opts for Treadmill style
+                    },
+                    epilepsy = {
+                        stage = "aura",     -- "aura" or "ictal"
+                        tick_time = 100,
+                    },
+                    dvd = {
+                        -- text = {"line1", "line2", "line3", "etc"}
+                        tick_time = 100,
+                        -- Opts for Dvd style
+                    },
+                    -- etc
+                }
+            })
+        end,
+    },
     {"liuchengxu/vista.vim", lazy = false},
     {"skywind3000/asyncrun.vim", lazy = false},
     {"fatih/vim-go", lazy = false},
