@@ -144,7 +144,11 @@ return {
                 keywords = {
                     FIX = {
                         color = "error", -- can be a hex color, or a named color (see below)
-                        alt = {"ERR"},
+                        alt = {"ERR", "failed"},
+                    },
+                    WARNING = {
+                        color = "warning", -- can be a hex color, or a named color (see below)
+                        alt = {"not found"},
                     },
                     TODO = {
                         color = "info",
