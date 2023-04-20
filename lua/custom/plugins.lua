@@ -3,12 +3,12 @@
 
 return {
     {"vim-scripts/c.vim", lazy = false},
-    {"tamton-aquib/zone.nvim", lazy = false,
+    {"tamton-aquib/zone.nvim", lazy = true,
         config = function()
             require("zone").setup({
                 require('zone').setup {
                     style = "treadmill",
-                    after = 5,          -- Idle timeout
+                    after = 30,          -- Idle timeout
                     exclude_filetypes = { "TelescopePrompt", "NvimTree", "neo-tree", "dashboard", "lazy" },
                     -- More options to come later
 
