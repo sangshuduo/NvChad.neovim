@@ -3,6 +3,10 @@
 
 return {
     {"vim-scripts/c.vim", lazy = false},
+    {"luochen1990/rainbow",
+        lazy = false,
+        enable = true,
+    },
     {"tamton-aquib/zone.nvim", lazy = true,
         config = function()
             require("zone").setup({
