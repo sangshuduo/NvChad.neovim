@@ -54,6 +54,7 @@ return {
         end
     },
     {'p00f/clangd_extensions.nvim', lazy = false,
+        commit = "798e377ec859087132b81d2f347b5080580bd6b1",
         config = function()
             require("clangd_extensions").setup {
                 server = {
