@@ -38,7 +38,6 @@ return {
     },
     {"liuchengxu/vista.vim", lazy = false},
     {"skywind3000/asyncrun.vim", lazy = false},
-    {"darrikonn/vim-gofmt", lazy = false},
     {"wellle/context.vim", lazy = false},
     {"rhysd/vim-clang-format", lazy = false},
     {"github/copilot.vim", lazy = false},
