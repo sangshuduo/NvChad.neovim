@@ -2,6 +2,7 @@
 -- THe plugin name is github user or organization name/reponame
 
 return {
+    {"MattesGroeger/vim-bookmarks", lazy = false},
     {"vim-scripts/c.vim", lazy = false},
     {"luochen1990/rainbow",
         lazy = false,
