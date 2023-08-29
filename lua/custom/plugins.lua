@@ -41,7 +41,7 @@ return {
     {"skywind3000/asyncrun.vim", lazy = false},
     {"wellle/context.vim", lazy = false},
     {"rhysd/vim-clang-format", lazy = false},
---    {"github/copilot.vim", lazy = false},
+    {"github/copilot.vim", lazy = false},
     {"Exafunction/codeium.vim", lazy = false},
     {'danilamihailov/beacon.nvim', lazy = false},
     {'neoclide/coc.nvim', lazy = false},
