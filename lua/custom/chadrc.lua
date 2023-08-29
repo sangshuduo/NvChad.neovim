@@ -1,25 +1,20 @@
--- This is an example chadrc file , its supposed to be placed in /lua/custom dir
--- lua/custom/chadrc.lua
-
--- tab:→\ ,trail:␣,extends:…,eol:⏎
--- tab:>- ,trail:~,extends:…,eol:↵
-vim.opt.list = true
-vim.opt.listchars:append "eol:⏎"
-vim.opt.listchars:append "space: "
-vim.opt.listchars:append "trail:␣"
-vim.opt.listchars:append "extends:…"
-vim.opt.listchars:append "nbsp:␣"
-vim.opt.listchars:append "tab:>-"
-
+---@type ChadrcConfig
 local M = {}
 
--- make sure you maintain the structure of `core/default_config.lua` here,
--- example of changing theme:
+-- Path to overriding theme and highlights files
+local highlights = require "custom.highlights"
+
+M.ui = {
+  theme = "onedark",
+  theme_toggle = { "onedark", "one_light" },
+
+  hl_override = highlights.override,
+  hl_add = highlights.add,
+}
 
 M.plugins = "custom.plugins"
 
-M.ui = {
-   theme = "tokyonight",
-}
+-- check core.mappings for table structure
+M.mappings = require "custom.mappings"
 
 return M
