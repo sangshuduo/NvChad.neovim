@@ -15,8 +15,8 @@ local formatting_style = {
   fields = field_arrangement[cmp_style] or { "abbr", "kind", "menu" },
 
   format = function(_, item)
-    local icons = require "nvchad.icons.lspkind"
-    local icon = (cmp_ui.icons and icons[item.kind]) or ""
+--    local icons = require "nvchad.icons.lspkind"
+    local icon = ""
 
     if cmp_style == "atom" or cmp_style == "atom_colored" then
       icon = " " .. icon .. " "
