@@ -2,6 +2,11 @@
 -- THe plugin name is github user or organization name/reponame
 
 return {
+    {"poljar/typos.nvim", lazy=false,
+        config = function()
+            require("typos").setup()
+        end,
+    },
     {"RRethy/vim-illuminate", lazy = false},
     {"MattesGroeger/vim-bookmarks", lazy = false},
     {"vim-scripts/c.vim", lazy = false},
