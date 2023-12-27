@@ -2,6 +2,13 @@
 -- THe plugin name is github user or organization name/reponame
 
 return {
+    {'edluffy/hologram.nvim', lazy = false,
+        config = function()
+            require('hologram').setup({
+                auto_display = true -- WIP. Will display 'Hologram' on CursorHold events
+        })
+        end,
+    },
     {"poljar/typos.nvim", lazy=false,
         config = function()
             require("typos").setup()
