@@ -2,6 +2,13 @@
 -- THe plugin name is github user or organization name/reponame
 
 return {
+    {'skywind3000/vim-gpt-commit',
+        config = function ()
+        vim.g.gpt_commit_key = 'your key'
+        -- uncomment this line below to enable proxy
+        -- vim.g.gpt_commit_proxy = 'socks5://127.0.0.1:1080'
+        end,
+    },
     {'edluffy/hologram.nvim', lazy = false,
         config = function()
             require('hologram').setup({
