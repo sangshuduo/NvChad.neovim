@@ -1,8 +1,17 @@
 diff --git a/lua/nvchad/statusline/default.lua b/lua/nvchad/statusline/default.lua
-index bc7a811..c82a43f 100644
+index 61ecbb3..d34c59c 100644
 --- a/lua/nvchad/statusline/default.lua
 +++ b/lua/nvchad/statusline/default.lua
-@@ -176,10 +176,12 @@ M.cursor_position = function()
+@@ -168,7 +168,7 @@ end
+ 
+ M.LSP_status = function()
+   if rawget(vim, "lsp") then
+-    for _, client in ipairs(vim.lsp.get_active_clients()) do
++    for _, client in ipairs(vim.lsp.get_clients()) do
+       if client.attached_buffers[stbufnr()] and client.name ~= "null-ls" then
+         return (vim.o.columns > 100 and "%#St_LspStatus#" .. "   LSP ~ " .. client.name .. " ") or "   LSP "
+       end
+@@ -190,10 +190,12 @@ M.cursor_position = function()
    local text = math.modf((current_line / total_line) * 100) .. tostring "%%"
    text = string.format("%4s", text)
  
